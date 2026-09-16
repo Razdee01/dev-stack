@@ -2,7 +2,7 @@ import hero from "../assets/banner-stack.png";
 
 const Hero = () => {
     return (
-        <section className="container mx-auto px-6 py-16">
+        <section className="container mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-10">
                 
                 <div className="flex-1">
