@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { iTech } from '../../type';
 
-const TechCard = ({technology}) => {
+interface TechCardProps{
+    technology:iTech
+}
+const TechCard = ({technology}:TechCardProps) => {
+    const [addToStack,setAddToStack]=useState(false)
+
     return (
         <div>
             <div
@@ -41,8 +47,8 @@ const TechCard = ({technology}) => {
                         </span>
                     </div>
 
-                    <button className="w-full bg-[#080d1d] text-white text-sm py-2.5 rounded-md mt-4 hover:bg-gray-800">
-                        Add to Stack
+                    <button onClick={()=>setAddToStack(true)} className={`w-full ${addToStack?"bg-pink-600":"bg-[#080d1d]"}  text-white text-sm py-2.5 rounded-md mt-4`}>
+                        {addToStack?"Added to Stack":"Add to Stack"}
                     </button>
                 </div>
         </div>
