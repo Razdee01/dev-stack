@@ -1,8 +1,9 @@
-import React from 'react';
 import type { iTech } from '../../type';
 import TechCard from './TechCard';
-
-const Technologies = ({technologies}) => {
+interface technologiesProps{
+    technologies:iTech[]
+}
+const Technologies = ({technologies}:technologiesProps) => {
    
     
     return (

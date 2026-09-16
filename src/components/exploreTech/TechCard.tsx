@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import type { iTech } from '../../type';
 
 interface TechCardProps{
