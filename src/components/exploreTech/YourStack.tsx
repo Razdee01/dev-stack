@@ -8,6 +8,16 @@ interface iStackProps {
 
 const YourStack = ({ selectedTech, setSelectedTech }: iStackProps) => {
 
+    const handleRemove=(tech:iTech)=>{
+        const restTech=selectedTech.filter(singleTech=>singleTech.id!==tech.id)
+       
+        setSelectedTech(restTech)
+        
+    }
+    const handleRemoveAll=()=>{
+        setSelectedTech([])
+    }
+
     return (
         <div className="border border-gray-200 rounded-2xl p-6 bg-white">
 
@@ -46,7 +56,9 @@ const YourStack = ({ selectedTech, setSelectedTech }: iStackProps) => {
                         </div>
 
                         {/* Remove functionality later */}
-                        <span className="text-gray-400 text-xl">
+                        <span
+                        onClick={()=>handleRemove(tech)}
+                        className="text-gray-400 text-xl">
                             ×
                         </span>
 
@@ -55,6 +67,7 @@ const YourStack = ({ selectedTech, setSelectedTech }: iStackProps) => {
             </div>
 
             <button
+            onClick={handleRemoveAll}
                 className="w-full mt-8 border border-red-300 text-red-500 rounded-xl py-2.5 font-semibold"
             >
                 Remove All
