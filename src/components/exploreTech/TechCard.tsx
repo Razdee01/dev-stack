@@ -54,7 +54,9 @@ const TechCard = ({technology,selectedTech,setSelectedTech}:TechCardProps) => {
                         </span>
                     </div>
 
-                    <button onClick={handleAddtoStack} className={`w-full ${addToStack?"bg-pink-600":"bg-[#080d1d]"}  text-white text-sm py-2.5 rounded-md mt-4`}>
+                    <button 
+                    disabled={addToStack?true:false}
+                    onClick={handleAddtoStack} className={`w-full ${addToStack?"bg-pink-600":"bg-[#080d1d]"}  text-white text-sm py-2.5 rounded-md mt-4`}>
                         {addToStack?"Added to Stack":"Add to Stack"}
                     </button>
                 </div>
