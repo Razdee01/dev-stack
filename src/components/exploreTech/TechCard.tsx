@@ -1,11 +1,18 @@
-import  { useState } from 'react';
+import  { useState, type Dispatch, type SetStateAction } from 'react';
 import type { iTech } from '../../type';
 
 interface TechCardProps{
-    technology:iTech
+    technology:iTech,
+     selectedTech:iTech[],
+    setSelectedTech:Dispatch<SetStateAction<iTech[]>>
 }
-const TechCard = ({technology}:TechCardProps) => {
+const TechCard = ({technology,selectedTech,setSelectedTech}:TechCardProps) => {
     const [addToStack,setAddToStack]=useState(false)
+
+    const handleAddtoStack=()=>{
+        setAddToStack(true)
+        setSelectedTech([...selectedTech,technology])
+    }
 
     return (
         <div>
@@ -47,7 +54,7 @@ const TechCard = ({technology}:TechCardProps) => {
                         </span>
                     </div>
 
-                    <button onClick={()=>setAddToStack(true)} className={`w-full ${addToStack?"bg-pink-600":"bg-[#080d1d]"}  text-white text-sm py-2.5 rounded-md mt-4`}>
+                    <button onClick={handleAddtoStack} className={`w-full ${addToStack?"bg-pink-600":"bg-[#080d1d]"}  text-white text-sm py-2.5 rounded-md mt-4`}>
                         {addToStack?"Added to Stack":"Add to Stack"}
                     </button>
                 </div>
