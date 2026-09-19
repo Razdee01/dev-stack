@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import type { iTech } from "./type";
 import Footer from "./components/Footer";
+import Loading from "./components/Loading";
 
 const technologiesFetch=async():Promise<iTech[]>=>{
   const res=await fetch("/data.json")
@@ -22,7 +23,7 @@ function App() {
     <>
     <NavBar></NavBar>
     <Hero></Hero>
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<Loading></Loading>}>
         <ExploreTech technologiesPromise={technologiesPromise} />
       </Suspense>
       <Footer></Footer>
